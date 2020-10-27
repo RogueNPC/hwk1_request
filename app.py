@@ -36,5 +36,9 @@ def sayntimes(word, n):
     else:
         return 'Invalid input. Please try again by entering a word and a number!'
 
+@app.route('/reverse/<word>')
+def reverse(word):
+    return word[::-1]
+
 if __name__ == '__main__':
     app.run(debug=True)
