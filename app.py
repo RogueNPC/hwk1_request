@@ -1,4 +1,5 @@
 from flask import Flask
+from random import randint
 app = Flask(__name__)
 
 @app.route('/')
@@ -52,6 +53,14 @@ def strangecaps(word):
         else:
             finalStr += letter
     return finalStr
+
+@app.route('/dicegame')
+def dicegame():
+    result = randint(1, 6)
+    if (result == 6):
+        return f'You rolled a {result}. You won the game!'
+    else:
+        return f'You rolled a {result}. You lost the game!'
 
 if __name__ == '__main__':
     app.run(debug=True)
