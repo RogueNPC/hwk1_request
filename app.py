@@ -40,5 +40,18 @@ def sayntimes(word, n):
 def reverse(word):
     return word[::-1]
 
+@app.route('/strangecaps/<word>')
+def strangecaps(word):
+    finalStr = ''
+    counter = 0
+    for letter in word:
+        counter += 1
+        if (counter % 2 == 0):
+            modifiedChar = letter.upper()
+            finalStr += modifiedChar
+        else:
+            finalStr += letter
+    return finalStr
+
 if __name__ == '__main__':
     app.run(debug=True)
