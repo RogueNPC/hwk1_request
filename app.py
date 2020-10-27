@@ -21,5 +21,13 @@ def favorite_desert(users_dessert):
 def madlibs(adjective, noun):
     return f'The sitcom about the {noun} never took off, because the pilot was {adjective}.'
 
+@app.route('/multiply/<number1>/<number2>')
+def multiply(number1, number2):
+    if (number1.isdigit() == True and number2.isdigit() == True):
+        total = int(number1) * int(number2)
+        return f'{number1} times {number2} is {total}'
+    else:
+        return 'Invalid inputs. Please try again by entering 2 numbers!'
+
 if __name__ == '__main__':
     app.run(debug=True)
