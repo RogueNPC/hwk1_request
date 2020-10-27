@@ -29,5 +29,12 @@ def multiply(number1, number2):
     else:
         return 'Invalid inputs. Please try again by entering 2 numbers!'
 
+@app.route('/sayntimes/<word>/<n>')
+def sayntimes(word, n):
+    if (word.isalpha() == True and n.isdigit() == True):
+        return (word + ' ') * int(n)
+    else:
+        return 'Invalid input. Please try again by entering a word and a number!'
+
 if __name__ == '__main__':
     app.run(debug=True)
